@@ -10,7 +10,7 @@ export default function UserTripList({userTrips}) {
     const LocalData = JSON.parse(userTrips[0].tripData);
     const router = useRouter();
 
-  return (
+  return userTrips&&(
     <View>
       <View style={{marginTop:20}}>
         {LocalData?.locationInfo?.photoRef ? (
@@ -64,7 +64,9 @@ export default function UserTripList({userTrips}) {
             }}>{moment(LocalData.startDate).format('DD MMM YYYY')}</Text>
             </View>
             <TouchableOpacity 
-                onPress={()=>router.push('/../trip-details/index')}
+                onPress={()=>router.push({pathname:'/trip-details',params:{
+                    trip:JSON.stringify(userTrips[0])
+                }})}
                 style={{
                 padding:15,
                 backgroundColor:Colors.PEIMARY,

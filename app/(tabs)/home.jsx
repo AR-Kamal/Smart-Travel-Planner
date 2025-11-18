@@ -19,7 +19,7 @@ export default function home() {
             <Text style={{
           fontFamily:'outfit-bold',
           fontSize:35
-              }}>Home</Text>
+              }}>Home </Text>
           </View>
     </ScrollView>
   )

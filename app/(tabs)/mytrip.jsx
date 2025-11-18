@@ -48,7 +48,6 @@ export default function MyTrip() {
         display:'flex',
         flexDirection:'row',
         alignContent:'center',
-        justifyContent:'space-between'
       }}>
         <Text style={{
           fontFamily:'outfit-bold',

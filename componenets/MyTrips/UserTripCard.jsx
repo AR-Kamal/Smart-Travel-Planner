@@ -21,7 +21,7 @@ export default function UserTripCard({trip}) {
         alignItems:'center'
     }}>
         <Image
-          source={{uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${formatData(trip.tripData).locationInfo.photoRef}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY}`}}
+          source={{uri: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${formatData(trip.tripData).locationInfo?.photoRef}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY}`}}
         style={{
             width:100,
             height:100,
