@@ -92,7 +92,7 @@ export default function SignIn() {
       backgroundColor:Colors.WHITE,
       height:'100%'
     }}>
-      <TouchableOpacity onPress={()=>router.back()}>
+      <TouchableOpacity onPress={()=>router.push('/login')}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
