@@ -66,7 +66,7 @@ This version reflects:
 ## Purpose of This Repository
 
 This repository is intended for:
-- **Internship and portfolio showcase**
+- **Portfolio showcase**
 - Demonstrating full-stack development skills
 - Academic assessment and documentation
 - Showcasing system design and problem-solving ability
@@ -83,7 +83,3 @@ This codebase represents a **prototype only**. It is not intended for direct pro
 ## 📄 License
 
 This project is provided for **educational and demonstration purposes only**.
-
----
-
-⭐ *If you are a recruiter or reviewer, please refer to the live application for the most accurate representation of the project’s capabilities.*
