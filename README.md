@@ -1,50 +1,89 @@
-# Welcome to your Expo app 👋
+# MaiKedah – Smart Tourism Planning Platform (Prototype)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![Status](https://img.shields.io/badge/status-prototype-orange)
+![Tech](https://img.shields.io/badge/tech-Next.js%20%7C%20Supabase%20%7C%20Tailwind-blue)
+![Purpose](https://img.shields.io/badge/purpose-academic%20%2F%20portfolio-green)
+![License](https://img.shields.io/badge/license-educational-lightgrey)
 
-## Get started
+## Overview
 
-1. Install dependencies
+This repository contains a **prototype implementation of MaiKedah**, a smart tourism planning platform developed for **academic, learning, and portfolio purposes**. The prototype demonstrates the **core idea, system architecture, and technical approach** behind the project, and serves as a proof-of-concept rather than a full production system.
 
-   ```bash
-   npm install
-   ```
+👉 **Live / Actual Application:**  
+🔗 https://maikedah.vercel.app/
 
-2. Start the app
+The live application represents the **actively developed and more complete version** of MaiKedah, with improved features, UI, and overall stability beyond what is shown in this prototype.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## Project Motivation
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Tourists often face difficulties planning trips in unfamiliar destinations due to scattered information, inefficient routes, and lack of personalization. MaiKedah addresses this by proposing a **smart, data-driven tourism planning system** that generates optimized itineraries based on user preferences, budget, and time constraints, while also laying the foundation for tourism analytics.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This prototype focuses on validating:
+- The feasibility of personalized itinerary generation
+- The overall system design and architecture
+- Frontend–backend integration using modern web technologies
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## What This Prototype Demonstrates
 
-```bash
-npm run reset-project
-```
+- Core concept of AI-assisted tourism planning  
+- Destination and place discovery workflow  
+- Basic itinerary generation logic  
+- Clean and scalable project structure  
+- Practical use of modern full-stack technologies  
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+⚠️ Some advanced features (e.g. full analytics, large-scale optimization) are **out of scope or partially implemented** in this repository and are explored further in the live version.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## Tech Stack (Prototype)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **Frontend:** Next.js (React)
+- **Backend & Database:** Supabase (PostgreSQL, Authentication)
+- **Styling:** Tailwind CSS
+- **APIs:** Google Maps APIs (conceptual / partial)
+- **Version Control:** Git & GitHub
+- **Deployment (Live App):** Vercel
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## Live Application
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The full-featured and continuously improved version of MaiKedah is available here:
+
+👉 **https://maikedah.vercel.app/**
+
+This version reflects:
+- Refined UI/UX
+- Improved feature completeness
+- Ongoing development and iteration
+
+---
+
+## Purpose of This Repository
+
+This repository is intended for:
+- **Internship and portfolio showcase**
+- Demonstrating full-stack development skills
+- Academic assessment and documentation
+- Showcasing system design and problem-solving ability
+- Reference for future expansion or improvements
+
+---
+
+## ⚠️ Disclaimer
+
+This codebase represents a **prototype only**. It is not intended for direct production use and does not fully reflect the final implementation available in the live application.
+
+---
+
+## 📄 License
+
+This project is provided for **educational and demonstration purposes only**.
+
+---
+
+⭐ *If you are a recruiter or reviewer, please refer to the live application for the most accurate representation of the project’s capabilities.*
