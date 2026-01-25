@@ -42,7 +42,7 @@ This prototype focuses on validating:
 ## Tech Stack (Prototype)
 
 - **Frontend:** React Native
-- **Backend & Database:** Supabase (PostgreSQL, Authentication), Next.js
+- **Backend & Database:** Supabase (PostgreSQL, Authentication), Node.js
 - **Styling:** Tailwind CSS
 - **APIs:** Google Maps APIs (conceptual / partial)
 - **Version Control:** Git & GitHub
