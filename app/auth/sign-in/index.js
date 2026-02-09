@@ -1,11 +1,12 @@
-import { useNavigation, useRouter } from 'expo-router';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
-import { Colors } from '../../../constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Image } from 'expo-image';
+import { useNavigation, useRouter } from 'expo-router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './../../../configs/FirebaseConfig'
-//import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
+import { StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { Colors } from '../../../constants/Colors';
+import { auth } from './../../../configs/FirebaseConfig';
 
 
 export default function SignIn() {
@@ -35,6 +36,16 @@ export default function SignIn() {
     };
     checkUserSession();
   }, []); */
+  useEffect(() => {
+  const checkUserSession = async () => {
+    const userData = await AsyncStorage.getItem('user');
+    if (userData) {
+      router.replace('/(tabs)/mytrip');
+    }
+  };
+
+  checkUserSession();
+}, []);
 
 
   const onSignIn=()=>{
@@ -45,11 +56,15 @@ export default function SignIn() {
         return;
       }
     signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
+  .then(async(userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    router.replace('/mytrip')
+
+    await AsyncStorage.setItem('user', JSON.stringify(user));
+
+    router.replace('/home')
     console.log(user)
+    ToastAndroid.show('Successfuly Sign In', ToastAndroid.SHORT)
     // ...
   })
   .catch((error) => {
@@ -67,18 +82,22 @@ export default function SignIn() {
     }
     else
     {
-      ToastAndroid.show('Successfuly Sign In', ToastAndroid.LONG)
+      return;
     }
   });
   }
   return (
     <View style={{
-      padding:25,
-      paddingTop:40,
-      backgroundColor:Colors.WHITE,
-      height:'100%'
+      height:'100%',
+
     }}>
-      <TouchableOpacity onPress={()=>router.back()}>
+        <Image source={require('./../../../assets/images/beach.jpg')}
+        style={{ 
+          width: '100%', 
+          height: '100%'
+        }}/>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={()=>router.push('/login')}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
 
@@ -149,6 +168,7 @@ export default function SignIn() {
           textAlign:'center',
         }}>Create Account</Text>
       </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -160,5 +180,23 @@ const styles = StyleSheet.create({
     borderRadius:15,
     borderColor: Colors.GRAY,
     fontFamily:'outfit'
-  }
+  },
+
+  container:{
+        backgroundColor: Colors.WHITE,
+        marginTop:-700,
+        height: '100%',
+        borderTopLeftRadius:30,
+        borderTopRightRadius:30,
+        padding: 25
+    },
+
+    button:{
+        padding:15,
+        backgroundColor:Colors.PEIMARY,
+        borderRadius:99,
+        marginTop:'25%'
+    }
 })
+
+

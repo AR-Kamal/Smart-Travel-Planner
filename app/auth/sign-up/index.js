@@ -1,10 +1,11 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Image } from 'expo-image';
 import { useNavigation, useRouter } from 'expo-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { auth, db } from '../../../configs/FirebaseConfig';
 import { Colors } from '../../../constants/Colors';
-import { auth } from '../../../configs/FirebaseConfig';
 
 export default function SignUp() {
   const navigation=useNavigation();
@@ -21,14 +22,14 @@ export default function SignUp() {
     })
   }, [])
 
-  const OnCreateAccount=()=>{
+  const OnCreateAccount=async()=>{
 
     if(!email||!password||!fullName)
     {
       ToastAndroid.show("Please Enter all Details", ToastAndroid.LONG);
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
+    /* createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -41,16 +42,46 @@ export default function SignUp() {
     const errorMessage = error.message;
     console.log(errorMessage,errorCode);
     // ..
-  });
+  }); */
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Save fullName to Firestore
+      await setDoc(doc(db, "Users", user.uid), {
+        fullName: fullName,
+        email: email,
+        createdAt: new Date(),
+      });
+
+      ToastAndroid.show("Account Created Successfully!", ToastAndroid.SHORT);
+
+      router.replace('/(tabs)/home');  // better navigation
+
+    } catch (error) {
+      console.log(error);
+
+      if (error.code === 'auth/email-already-in-use') {
+        ToastAndroid.show("Email already in use", ToastAndroid.LONG);
+      } else if (error.code === 'auth/weak-password') {
+        ToastAndroid.show("Password must be at least 6 characters", ToastAndroid.LONG);
+      } else {
+        ToastAndroid.show("Failed to create account", ToastAndroid.LONG);
+      }
+    }
   }
   return (
     <View style={{
-      padding:25,
-      paddingTop:40,
-      backgroundColor:Colors.WHITE,
-      height:'100%'
-    }}>
-      <TouchableOpacity onPress={()=>router.back()}>
+          height:'100%',
+    
+        }}>
+            <Image source={require('./../../../assets/images/beach.jpg')}
+            style={{ 
+              width: '100%', 
+              height: '100%'
+            }}/>
+        <View style={styles.container}>
+      <TouchableOpacity onPress={()=>router.replace('auth/sign-in')}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
       <Text style={{
@@ -130,6 +161,7 @@ export default function SignUp() {
       </TouchableOpacity>
 
     </View>
+    </View>
   )
 }
 
@@ -140,5 +172,21 @@ const styles = StyleSheet.create({
     borderRadius:15,
     borderColor: Colors.GRAY,
     fontFamily:'outfit'
-  }
+  },
+
+  container:{
+        backgroundColor: Colors.WHITE,
+        marginTop:-700,
+        height: '100%',
+        borderTopLeftRadius:30,
+        borderTopRightRadius:30,
+        padding: 25
+    },
+
+    button:{
+        padding:15,
+        backgroundColor:Colors.PEIMARY,
+        borderRadius:99,
+        marginTop:'25%'
+    }
 })

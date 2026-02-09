@@ -1,7 +1,7 @@
 export const SelectTravelesList=[
     {
         id:2,
-        title:'Just Me',
+        title:'Just Me', 
         desc:'A sole traveler in exploration',
         icon:'',
         people:'1'
@@ -44,16 +44,20 @@ export const SelectBudgetOptions=[
     },
     {
         id:3,
-        title:'Couple',
+        title:'Moderate',
         desc:'Keep the costs on the average',
         icon:'',
 
     },
     {
         id:4,
-        title:'Family',
+        title:'Luxury',
         desc:'Not worrying about the cost',
         icon:'',
 
     },
 ]
+
+
+
+export const AI_PROMPT='Generate Travel Plan for Location : {location}, for {totalDays} Days and {totalNight} Night for {traveler} with a {budget} budget, with Hotel Name, Hotel address, Price, Hotel image url, Geo Coordinates, Time travel each of location for {totalDays} days and {totalNight} night with each day plan with best time to visit in JSON format.'

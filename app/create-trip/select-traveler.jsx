@@ -11,6 +11,7 @@ export default function SelectTraveler() {
 
     const navigation=useNavigation();
     const [selectedTraveler,setSelectedTraveler]=useState();
+    //const [selectedOption,setSelectedOption]=useState();
     const {tripData,setTripData}=useContext(CreateTripContext);
     const router=useRouter();
 
@@ -26,7 +27,7 @@ export default function SelectTraveler() {
     useEffect(()=>{
         setTripData({...tripData,
             traveler:selectedTraveler
-        })
+        }) 
     }, [selectedTraveler])
 
     useEffect(()=>{
@@ -62,7 +63,7 @@ export default function SelectTraveler() {
             }}>
                 <OptionCard 
                     option={item}
-                    selectedTraveler={selectedTraveler}
+                    selectedOption={selectedTraveler}
                 
                 />
             </TouchableOpacity>
@@ -70,7 +71,7 @@ export default function SelectTraveler() {
       />
       </View>
         <TouchableOpacity style={{
-        padding:20,
+        padding:15,
         backgroundColor:Colors.PEIMARY,
         borderRadius:15,
         marginTop:20}}>

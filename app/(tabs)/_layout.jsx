@@ -6,15 +6,29 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 export default function TabLayout() {
+
+  
   return (
     <Tabs screenOptions={{
       headerShown:false,
       tabBarActiveTintColor:Colors.PEIMARY
     }}>
+        <Tabs.Screen name='home'
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon:({color})=><Ionicons name="home" size={24} color={color} />
+          }}
+        />
         <Tabs.Screen name='mytrip'
           options={{
             tabBarLabel: 'My Trip',
             tabBarIcon:({color})=><Ionicons name="location-sharp" size={24} color={color} />
+          }}
+        />
+        <Tabs.Screen name='newtrip'
+          options={{
+            tabBarLabel: 'Create Trip',
+            tabBarIcon:({color})=><Ionicons name="add" size={24} color={color} />
           }}
         />
         <Tabs.Screen name='discover'
@@ -32,3 +46,4 @@ export default function TabLayout() {
     </Tabs>
   )
 }
+
